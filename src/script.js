@@ -347,28 +347,3 @@ const onBtnClick = () => {
     ctx.clearRect(0, 0, canvas.height, canvas.width);
     drawBgImage();
 };
-
-/**
- * Determine the intersection point of two line segments
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- * @param {number} x3
- * @param {number} y3
- * @param {number} x4
- * @param {number} y4
- *
- * @returns {{midX: number, midY: number}}
- */
-const getIntersectionPoint = (x1, y1, x2, y2, x3, y3, x4, y4) => {
-    const denominator = ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
-    const ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denominator;
-    // const ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
-
-    const midX = x1 + ua * (x2 - x1);
-    const midY = y1 + ua * (y2 - y1);
-
-    return { midX, midY };
-}
