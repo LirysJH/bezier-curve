@@ -8,7 +8,7 @@ const ctx = canvas.getContext('2d');
 const img = new Image();
 
 // setting image source
-img.src = './images/img.png';
+img.src = './src/images/img.png';
 
 // mouse related variable
 let isMouseDown = false;
