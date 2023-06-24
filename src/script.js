@@ -126,7 +126,7 @@ const storeDotDataAndDrawLine = (x, y) => {
         drawBgImage();
         drawBezierCurve(firstPoint.x, firstPoint.y, x, y, x, y);
         putDot(firstPoint.x, firstPoint.y, 'green');
-        putDot(midX, midY, 'blue');
+        putDot(midX, midY, 'green');
         putDot(x, y, 'green');
 
         // store unique points data
@@ -237,6 +237,9 @@ const dragCurveControlPoint = (event) => {
 const drawMidControlPointOnCurve = (start, mid, end) => {
     const st_to_mid = getLineMidPoint(start.x, start.y, mid.x, mid.y);
     const mid_to_end = getLineMidPoint(mid.x, mid.y, end.x, end.y);
+
+    // middle control point on the curve
+    // bigger distortion requires more complicated calculations
     const res = getLineMidPoint(st_to_mid.midX, st_to_mid.midY, mid_to_end.midX, mid_to_end.midY);
 
     putDot(res.midX, res.midY, 'gold');
@@ -269,7 +272,7 @@ const drawLineLive = (x, y, key) => {
             drawBezierCurve(x, y, mid.x, mid.y, end.x, end.y);
 
             putDot(x, y, 'green');
-            putDot(mid.x, mid.y, 'blue');
+            putDot(mid.x, mid.y, 'green');
             putDot(end.x, end.y, 'green');
 
             start.x = x;
@@ -282,7 +285,7 @@ const drawLineLive = (x, y, key) => {
             drawBezierCurve(start.x, start.y, x, y, end.x, end.y);
 
             putDot(start.x, start.y, 'green');
-            putDot(x, y, 'blue');
+            putDot(x, y, 'green');
             putDot(end.x, end.y, 'green');
 
             mid.x = x;
@@ -295,7 +298,7 @@ const drawLineLive = (x, y, key) => {
             drawBezierCurve(start.x, start.y, mid.x, mid.y, x, y);
 
             putDot(start.x, start.y, 'green');
-            putDot(mid.x, mid.y, 'blue');
+            putDot(mid.x, mid.y, 'green');
             putDot(x, y, 'green');
 
             end.x = x;
